@@ -2,9 +2,15 @@ import Forminputs from "@/components/form/Forminputs";
 import TextAreaInput from "@/components/form/TextAreaInput";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { campingSchema } from "@/utils/schemas";
 
 const Camping = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState } = useForm({
+    resolver: zodResolver(campingSchema),
+  });
+  const { errors } = formState;
 
   const jukkruSubmit = (data) => {
     console.log(data);
@@ -20,18 +26,21 @@ const Camping = () => {
               name="title"
               type="text"
               placeholder="Input Your Title"
+              errors={errors}
             />
             <Forminputs
               register={register}
               name="price"
               type="number"
               placeholder="Input Your Price"
+              errors={errors}
             />
             <TextAreaInput
               register={register}
               name="description"
               type="text"
               placeholder="Input Your Description"
+              errors={errors}
             />
           </div>
           <button>Submit</button>
