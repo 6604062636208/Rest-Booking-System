@@ -7,4 +7,6 @@ export const campingSchema = z.object({
     .string()
     .max(50, "Description must be less than 50 characters"),
   category: z.string(),
+  lat: z.coerce.number(),
+  lng: z.coerce.number(),
 });

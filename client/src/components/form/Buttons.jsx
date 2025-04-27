@@ -2,9 +2,9 @@ import React from "react";
 import { Button } from "../ui/button";
 import { LoaderCircle } from "lucide-react";
 
-const Buttons = ({ text, isOngoing, type }) => {
+const Buttons = ({ text, isOngoing }) => {
   return (
-    <Button type={type} disabled={isOngoing} className="capitalize mt-2">
+    <Button disabled={isOngoing} className="capitalize mt-2">
       {isOngoing ? (
         <>
           <LoaderCircle className="animate-spin" />
