@@ -4,10 +4,12 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const campingRoutes = require("./routes/camping");
+const morgan = require("morgan");
 
 // middleware
 app.use(cors()); // Stuck wai gon
 app.use(express.json());
+app.use(morgan("dev"));
 
 // Method GET, POST, PUT, PATCH, DELETE
 

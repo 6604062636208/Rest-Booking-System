@@ -9,10 +9,12 @@ const {
   deleteCamping,
 } = require("../controllers/camping");
 
+const { authCheck } = require("../middlewares/auth");
+
 // @ENDPOINT http://localhost:5000/api/camping
 // #METHOD GET [ list camping ]
 // @ACCESS Public
-router.get("/camping", listCamping);
+router.get("/camping", authCheck, listCamping);
 
 // @ENDPOINT http://localhost:5000/api/camping/5
 // #METHOD GET [ read camping ]

@@ -4,7 +4,7 @@ exports.listCamping = (req, res) => {
   try {
     // code body
     console.log("Hello Controllers");
-    console.log(Aten);
+    // console.log(Aten);
     res.send("Hello Controllers");
   } catch (error) {
     console.log(error.message);
